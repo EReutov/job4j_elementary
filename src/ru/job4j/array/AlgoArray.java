@@ -3,8 +3,19 @@ package ru.job4j.array;
 public class AlgoArray {
     public static void main(String[] args) {
         int[] array = new int[] {5, 3, 2, 1, 4};
-        int temp;
-        for (int i = array.length - 1; i >= 1; i--) {
+        int temp = array[0];
+        array[0] = array[3];
+        array[3] = temp;
+
+        temp = array[4];
+        array[4] = array[3];
+        array[3] = temp;
+
+        temp = array[1];
+        array[1] = array[2];
+        array[2] = temp;
+
+        /*for (int i = array.length - 1; i >= 1; i--) {
             for (int j = 0; j < i; j++) {
                 if (array[j] > array[j + 1]) {
                     temp = array[j];
@@ -12,7 +23,7 @@ public class AlgoArray {
                     array[j + 1] = temp;
                 }
             }
-        }
+        }*/
 
         for (int i : array) {
             System.out.println(i);
