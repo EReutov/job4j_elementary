@@ -1,16 +1,27 @@
 package ru.job4j.condition;
 
+import static java.lang.StrictMath.pow;
+import static java.lang.StrictMath.sqrt;
+
 public class Point {
 
-    public static double distance(int x1, int y1, int x2, int y2) {
-        double rsl = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        return rsl;
+    private int x;
+    private int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double distance(Point another) {
+        return sqrt(pow(this.x - another.x, 2) + pow(this.y - another.y, 2));
     }
 
     public static void main(String[] args) {
-        double result = Point.distance(0, 0, 2, 0);
-        System.out.println("result (0, 0) to (2, 0) " + result);
-        System.out.println("result (1, 5) to (7, 10) " + distance(1, 5, 7, 10));
+        Point one = new Point(0, 0);
+        Point two = new Point(0, 2);
+        double distance = one.distance(two);
+        System.out.println(distance);
     }
 
 }
