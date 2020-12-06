@@ -14,16 +14,17 @@ public class Matches {
         String player1 = "Первый игрок.";
         String player2 = "Второй игрок.";
         while (matches != 0) {
-            System.out.println("\r" + (player ? player1 : player2) + " Введите от 1 до 3 спичек чтобы уменьшить кол-во спичек (Осталось " + matches + "):");
+            String currentPlayer = player ? player1 : player2;
+            System.out.println(currentPlayer + " Введите от 1 до 3 спичек чтобы уменьшить кол-во спичек (Осталось " + matches + "):");
             int a = Integer.parseInt(count.nextLine());
             if  (a >= 1 && a <= 3) {
-                if (matches - a >= 0) {
+                if (matches - a > 0) {
                     matches -= a;
                     player = !player;
-                /*} else if (matches - a == 0) {
-                    System.out.println((player ? player1 : player2) + " Вы победили!");
+                } else if (matches - a == 0) {
+                    System.out.println(currentPlayer + " Вы победили!");
                     sleep(3000);
-                    matches -= a;*/
+                    matches -= a;
                 } else if (matches - a < 0) {
                     System.out.println("Введенное число первышает остаток!");
                     player = !player;
@@ -33,8 +34,6 @@ public class Matches {
                 player = !player;
             }
         }
-        System.out.println((player ? player1 : player2) + " Вы победили!");
-        sleep(3000);
     }
 
 }
